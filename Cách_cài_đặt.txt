@@ -1,0 +1,6 @@
+Tên cơ sở dữ liệu: ecom_store
+Tên đăng nhập tài khoản admin: chithanh151099@gmail.com
+Mật khẩu đăng nhập tài khoản admin: 151099
+
+Tên đăng nhập tài khoản khách hàng (có thể tự đăng ký): mychi@gmail.com
+Mật khẩu đăng nhập tài khoản khách hàng (có thể tự đăng ký): 12345

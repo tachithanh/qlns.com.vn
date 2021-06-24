@@ -12,7 +12,7 @@
     <div class="col-lg-12">
         <ol class="breadcrumb">
             <li>
-                <i class="fa fa-dashboard"></i> Trang tổng quan / Xem giới thiệu
+                <i class="fa fa-dashboard"></i> Trang tổng quan 
             </li>
         </ol>
     </div>

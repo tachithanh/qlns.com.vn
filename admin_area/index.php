@@ -157,6 +157,8 @@
                         include("dagiao.php");
                     }if(isset($_GET["insert_customers"])){
                         include("insert_customers.php");
+                    }if(isset($_GET["edit_customer"])){
+                        include("edit_customers.php");
                     }
                     
 

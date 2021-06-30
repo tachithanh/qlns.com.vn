@@ -64,7 +64,7 @@
                             <tr>
                                 <td> <?php echo $i; ?> </td>
                                 <td> <?php echo $c_name; ?> </td>
-                                <td> <img src="../customer/customer_images/<?php echo $c_image; ?>" width="60" height="60" ></td>
+                                <td> <img src="customer_image/<?php echo $c_image; ?>" width="60" height="60" ></td>
                                 <td> <?php echo $c_email; ?> </td>
                                 <td> <?php echo $c_country; ?> </td>
                                 <td> <?php echo $c_city; ?> </td>
@@ -73,7 +73,7 @@
                 
                                 <td> <?php echo $c_contact; ?> </td>
                                 <td> 
-                                    <a href="index.php?user_profile=<?php echo $c_id; ?>">
+                                    <a href="index.php?edit_customer=<?php echo $c_id; ?>">
                                         <i class="fa fa-pencil"></i> Chỉnh sửa
                                     </a>
                                 </td>

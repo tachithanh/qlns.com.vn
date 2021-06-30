@@ -81,9 +81,6 @@
                     <li>
                         <a href="index.php?view_customers"> Xem nhân viên </a>
                     </li>
-                    <li>
-                        <a href="index.php?customers_profile=<?php echo $admin_id; ?>"> Chỉnh sửa nhân viên </a>
-                    </li>
                 </ul>
             </li>
             <li>

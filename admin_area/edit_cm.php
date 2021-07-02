@@ -9,21 +9,21 @@
 
 ?>
 <?php
-    if(isset($_GET['edit_p_cat'])){
-        $edit_p_cat_id = $_GET['edit_p_cat'];
-        $edit_p_cat_query = "select * from department where depart_id ='$edit_p_cat_id'";
-        $run_edit = mysqli_query($con,$edit_p_cat_query);
+    if(isset($_GET['edit_cm'])){
+        $edit_cat = $_GET['edit_cm'];
+        $edit_cat_que = "select * from expert where expert_id='$edit_cat'";
+        $run_edit = mysqli_query($con,$edit_cat_que);
         $row_edit = mysqli_fetch_array($run_edit);
-        $p_cat_id = $row_edit['depart_id'];
-        $p_cat_title = $row_edit['depart_name'];
-        $p_cat_desc = $row_edit['depart_note'];
+        $cat_id = $row_edit['expert_id'];
+        $cat_title = $row_edit['expert_name'];
+        $cat_desc = $row_edit['expert_note'];
     }
 ?>
 <div class="row">
     <div class="col-lg-12">
         <ol class="breadcrumb">
             <li>
-                <i class="fa fa-dashboard"></i> Trang tổng quan / Chỉnh sửa danh mục phòng ban
+                <i class="fa fa-dashboard"></i> Trang tổng quan / Chỉnh sửa danh mục chuyên môn
             </li>
         </ol>
     </div>
@@ -34,25 +34,25 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">
-                    <i class="fa fa-money fa-fw"></i> Chỉnh sửa danh mục phòng ban
+                    <i class="fa fa-money fa-fw"></i> Chỉnh sửa danh mục chuyên môn
                 </h3>
             </div>
             <div class="panel-body">
                 <form action="" class="form-horizontal" method="POST">
                     <div class="form-group">
                         <label for="" class="control-label col-md-3"> 
-                            Tên phòng ban
+                            Tên chuyên môn
                         </label>
                         <div class="col-md-6">
-                            <input value="<?php echo $p_cat_title; ?>" name="p_cat_title" type="text" class="form-control">
+                            <input value="<?php echo $cat_title; ?>" name="cat_title" type="text" class="form-control">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="" class="control-label col-md-3"> 
-                            Mô tả phòng ban
+                            Mô tả chuyên môn
                         </label>
                         <div class="col-md-6">
-                            <textarea  type="text" name="p_cat_desc" id="" cols="30" rows="10" class="form-control"><?php echo $p_cat_desc; ?></textarea>
+                            <textarea  type="text" name="cat_desc" id="" cols="30" rows="10" class="form-control"><?php echo $cat_desc; ?></textarea>
                         </div>
                     </div>
                     <div class="form-group">
@@ -70,13 +70,13 @@
 </div>
 <?php
     if(isset($_POST['update'])){
-        $p_cat_title = $_POST['p_cat_title'];
-        $p_cat_desc = $_POST['p_cat_desc'];
-        $update_p_cat = "update department set depart_name='$p_cat_title',depart_note='$p_cat_desc' where depart_id='$p_cat_id'";
-        $run_p_cat = mysqli_query($con,$update_p_cat);
-        if($run_p_cat){
-            echo "<script>alert('Danh mục phòng ban của bạn đã được cập nhật thành công')</script>";
-            echo "<script>window.open('index.php?view_p_cats','_self')</script>";
+        $cat_title = $_POST['cat_title'];
+        $cat_desc = $_POST['cat_desc'];
+        $update_cat = "update expert set expert_name='$cat_title',expert_note='$cat_desc' where expert_id='$cat_id'";
+        $run_cat = mysqli_query($con,$update_cat);
+        if($run_cat){
+            echo "<script>alert('Danh mục chuyên môn của bạn đã được cập nhật thành công')</script>";
+            echo "<script>window.open('index.php?view_slides','_self')</script>";
         }
         
     }

@@ -12,7 +12,7 @@
     <div class="col-lg-12">
         <ol class="breadcrumb">
             <li>
-                <i class="fa fa-dashboard"></i> Trang tổng quan / Xem thể loại sản phẩm
+                <i class="fa fa-dashboard"></i> Trang tổng quan / Xem danh mục chức vụ
             </li>
         </ol>
     </div>
@@ -22,7 +22,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">
-                    <i class="fa fa-tags fa-fw"></i> Xem thể loại sản phẩm
+                    <i class="fa fa-tags fa-fw"></i> Xem danh mục chức vụ
                 </h3>
             </div>
             <div class="panel-body">
@@ -30,29 +30,29 @@
                     <table class="table table-hover table-striped table-bordered">
                         <thead>
                             <tr>
-                                <th> ID thể loại </th>
-                                <th> Tên thể loại sản phẩm </th>
-                                <th> Mô tả thể loại sản phẩm </th>
-                                <th> Chỉnh sửa thể loại sản phẩm </th>
-                                <th> Xóa thể loại sản phẩm </th>
+                                <th> STT </th>
+                                <th> Tên chức vụ </th>
+                                <th> Hệ số lương </th>
+                                <th> Chỉnh sửa </th>
+                                <th> Xóa </th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
                                 $i=0;
-                                $get_cats = "select * from categories";
+                                $get_cats = "select * from position";
                                 $run_cats = mysqli_query($con,$get_cats);
                                 while($row_cats=mysqli_fetch_array($run_cats)){
-                                    $cat_id = $row_cats['cat_id'];
-                                    $cat_title = $row_cats['cat_title'];
-                                    $cat_desc = $row_cats['cat_desc'];
+                                    $cat_id = $row_cats['id_position'];
+                                    $cat_title = $row_cats['position_name'];
+                                    $cat_bac = $row_cats['coefficient'];
                                     $i++;
                                 
                             ?>
                             <tr>
                                 <td> <?php echo $i; ?> </td>
                                 <td> <?php echo $cat_title; ?> </td>
-                                <td width="300"> <?php echo $cat_desc; ?> </td>
+                                <td width="300"> <?php echo $cat_bac; ?> </td>
                                 <td> 
                                     <a href="index.php?edit_cat=<?php echo $cat_id; ?>">
                                         <i class="fa fa-pencil"></i> Chỉnh sửa

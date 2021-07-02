@@ -12,44 +12,45 @@
     <div class="col-lg-12">
         <ol class="breadcrumb">
             <li>
-                <i class="fa fa-dashboard"></i> Trang tổng quan / Thêm giới thiệu
+                <i class="fa fa-dashboard"></i> Trang tổng quan / Thêm danh mục mức lương
             </li>
         </ol>
     </div>
 </div>
+
 <div class="row">
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">
-                    <i class="fa fa-money fa-fw"></i> Thêm giới thiệu
+                    <i class="fa fa-money fa-fw"></i> Thêm danh mục mức lương
                 </h3>
             </div>
             <div class="panel-body">
-                <form action="" class="form-horizontal" method="POST" enctype="multipart/form-data">
+                <form action="" class="form-horizontal" method="POST">
                     <div class="form-group">
                         <label for="" class="control-label col-md-3"> 
-                            Tiêu đề
+                           Mô tả mức lương
                         </label>
                         <div class="col-md-6">
-                            <input name="box_title" type="text" class="form-control">
+                            <input name="p_name" type="text" class="form-control">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="" class="control-label col-md-3"> 
-                           Mô tả
+                            Tổng mức lương (.../Ngày)
                         </label>
                         <div class="col-md-6">
-                            <textarea name="box_desc" type="text" class="form-control" rows="12" cols="18"></textarea>
+                        <input name="p_note" type="text" class="form-control">
+                            
                         </div>
                     </div>
-                    
                     <div class="form-group">
                         <label for="" class="control-label col-md-3"> 
                             
                         </label>
                         <div class="col-md-6">
-                        <input type="submit" name="submit"  value="Thêm trình bày" class="btn btn-primary form-control">
+                            <input value="Thêm" name="submit" type="submit" class="form-control btn btn-primary">
                         </div>
                     </div>
                 </form>
@@ -59,15 +60,14 @@
 </div>
 <?php
     if(isset($_POST['submit'])){
-        $box_title = $_POST['box_title'];
-        $box_desc = $_POST['box_desc'];
-
-        $insert_box = "insert into boxes_section (box_title,box_desc) values ('$box_title','$box_desc')";
-        $run_box = mysqli_query($con,$insert_box);
-
-        echo "<script>alert('Thêm giới thiệu thành công')</script>";
-        echo "<script>window.open('index.php?view_boxes','_self')</script>";
-        
+        $p_name = $_POST['p_name'];
+        $p_note = preg_replace("/[^0-9]/", "", $_POST['p_note']);
+        $insert_p = "insert into salary (salary_describe,total_salary) values ('$p_name','$p_note')";
+        $run_p = mysqli_query($con,$insert_p);
+        if($run_p){
+            echo "<script>alert('Đã thêm vào một danh mục mức lương mới thành công')</script>";
+            echo "<script>window.open('index.php?view_boxes','_self')</script>";
+        }
     }
 ?>
 

@@ -12,44 +12,45 @@
     <div class="col-lg-12">
         <ol class="breadcrumb">
             <li>
-                <i class="fa fa-dashboard"></i> Trang tổng quan / Thêm danh mục trình độ
+                <i class="fa fa-dashboard"></i> Trang tổng quan / Thêm danh mục kỷ luật
             </li>
         </ol>
     </div>
 </div>
-
 <div class="row">
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">
-                    <i class="fa fa-money fa-fw"></i> Thêm danh mục trình độ
+                    <i class="fa fa-money fa-fw"></i> Thêm danh mục kỷ luật
                 </h3>
             </div>
             <div class="panel-body">
-                <form action="" class="form-horizontal" method="POST">
+                <form action="" class="form-horizontal" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="" class="control-label col-md-3"> 
-                            Tên trình độ
+                            Tên loại kỷ luật
                         </label>
                         <div class="col-md-6">
-                            <input name="p_name" type="text" class="form-control">
+                            <input name="name_ship" type="text" class="form-control">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="" class="control-label col-md-3"> 
-                            Mô tả trình độ
+                    <label for="" class="control-label col-md-3"> 
+                            Hình thức kỷ luật
                         </label>
                         <div class="col-md-6">
-                            <textarea type="text" name="p_note" id="" cols="30" rows="10" class="form-control"></textarea>
+                           
+                            <textarea type="text" name="price_ship" id="" cols="30" rows="10" class="form-control"></textarea>
                         </div>
                     </div>
+                    
                     <div class="form-group">
                         <label for="" class="control-label col-md-3"> 
                             
                         </label>
                         <div class="col-md-6">
-                            <input value="Thêm" name="submit" type="submit" class="form-control btn btn-primary">
+                        <input type="submit" name="submit"  value="Thêm" class="btn btn-primary form-control">
                         </div>
                     </div>
                 </form>
@@ -59,14 +60,16 @@
 </div>
 <?php
     if(isset($_POST['submit'])){
-        $p_name = $_POST['p_name'];
-        $p_note = $_POST['p_note'];
-        $insert_p = "insert into level (level_name,level_note) values ('$p_name','$p_note')";
-        $run_p = mysqli_query($con,$insert_p);
-        if($run_p){
-            echo "<script>alert('Đã thêm vào một danh mục trình độ mới thành công')</script>";
-            echo "<script>window.open('index.php?view_coupons','_self')</script>";
-        }
+        $name_ship = $_POST['name_ship'];
+        
+        $price_ship = $_POST['price_ship'];
+
+        $insert_ship = "insert into discipline (discipline_name,discipline_note) values ('$name_ship','$price_ship')";
+        $run_box = mysqli_query($con,$insert_ship);
+
+        echo "<script>alert('Thêm danh mục kỷ luật thành công')</script>";
+        echo "<script>window.open('index.php?view_kl','_self')</script>";
+        
     }
 ?>
 

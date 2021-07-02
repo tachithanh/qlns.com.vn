@@ -36,7 +36,18 @@
         $get_pending_orders = "select * from pending_orders";
         $run_pending_orders = mysqli_query($con,$get_pending_orders);
         $count_pending_orders = mysqli_num_rows($run_pending_orders);
-        
+        $get_cus = "select * from customers";
+        $run_cus = mysqli_query($con,$get_cus);
+        $count_cus = mysqli_num_rows($run_cus);
+        $get_pb = "select * from department";
+        $run_pb = mysqli_query($con,$get_pb);
+        $count_pb = mysqli_num_rows($run_pb);
+        $get_cv = "select * from position";
+        $run_cv = mysqli_query($con,$get_cv);
+        $count_cv = mysqli_num_rows($run_cv);
+        $get_cm = "select * from department";
+        $run_cm = mysqli_query($con,$get_cm);
+        $count_cm = mysqli_num_rows($run_cm);
 
 ?>
 
@@ -159,6 +170,18 @@
                         include("insert_customers.php");
                     }if(isset($_GET["edit_customer"])){
                         include("edit_customers.php");
+                    }if(isset($_GET["edit_cm"])){
+                        include("edit_cm.php");
+                    }if(isset($_GET["delete_cm"])){
+                        include("delete_cm.php");
+                    }if(isset($_GET["insert_kl"])){
+                        include("insert_kl.php");
+                    }if(isset($_GET["view_kl"])){
+                        include("view_kl.php");
+                    }if(isset($_GET["delete_kl"])){
+                        include("delete_kl.php");
+                    }if(isset($_GET["edit_kl"])){
+                        include("edit_kl.php");
                     }
                     
 

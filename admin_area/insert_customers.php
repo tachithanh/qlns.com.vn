@@ -55,12 +55,7 @@
                         <input name="c_pass" type="password" class="form-control" required>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label class="col-md-3 control-label"> Phòng ban </label>
-                        <div class="col-md-6">
-                        <input name="c_phongban" type="text" class="form-control" required>
-                        </div>
-                    </div>
+                   
                     <div class="form-group">
                         <label class="col-md-3 control-label"> Phòng ban </label>
                         <div class="col-md-6">
@@ -81,17 +76,46 @@
                             </select>
                         </div>
                     </div>
+                    
                     <div class="form-group">
                         <label class="col-md-3 control-label"> Chức vụ </label>
                         <div class="col-md-6">
-                        <input name="c_chucvu" type="text" class="form-control" required>
+                            <select name="product_cat"  class="form-control">
+                                <option> Chọn một danh mục chức vụ </option>
+                                <?php
+                                    $get_chucvu = "select * from position";
+                                    $run_chucvu = mysqli_query($con,$get_chucvu);
+                                    while($row_chucvu=mysqli_fetch_array($run_chucvu)){
+                                        $id_position = $row_chucvu['id_position'];
+                                        $position_name = $row_chucvu['position_name'];
+
+                                        echo "
+                                        <option value='$id_position'>  $position_name </option>
+                                        ";
+                                    }
+                                ?>
+                            </select>
                         </div>
                     </div>
-                    
+                   
                     <div class="form-group">
                         <label class="col-md-3 control-label"> Chuyên môn </label>
                         <div class="col-md-6">
-                        <input name="c_chuyenmon" type="text" class="form-control" required>
+                            <select name="product_cat"  class="form-control">
+                                <option> Chọn một danh mục chuyên môn </option>
+                                <?php
+                                    $get_chuyenmon = "select * from expert";
+                                    $run_chuyenmon = mysqli_query($con,$get_chuyenmon);
+                                    while($row_chuyenmon=mysqli_fetch_array($run_chuyenmon)){
+                                        $expert_id = $row_chuyenmon['expert_id'];
+                                        $expert_name = $row_chuyenmon['expert_name'];
+
+                                        echo "
+                                        <option value='$expert_id'>  $expert_name </option>
+                                        ";
+                                    }
+                                ?>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group">

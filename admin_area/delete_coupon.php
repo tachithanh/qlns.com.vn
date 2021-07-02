@@ -10,11 +10,11 @@
 ?>
 <?php
     if(isset($_GET['delete_coupon'])){
-        $delete_coupon_id = $_GET['delete_coupon'];
-        $delete_coupon = "delete from coupons where coupon_id='$delete_coupon_id'";
-        $run_coupon = mysqli_query($con,$delete_coupon);
-        if($run_coupon){
-            echo "<script>alert('Một trong những mã giảm giá đã bị xóa')</script>";
+        $delete_cat_id = $_GET['delete_coupon'];
+        $delete_cat = "delete from level where id_level='$delete_cat_id'";
+        $run_delete = mysqli_query($con,$delete_cat);
+        if($run_delete){
+            echo "<script>alert('Một trong những danh mục trình độ của bạn đã bị xóa')</script>";
             echo "<script>window.open('index.php?view_coupons','_self')</script>";
         }
     }

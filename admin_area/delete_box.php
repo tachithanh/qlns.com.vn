@@ -10,11 +10,11 @@
 ?>
 <?php
     if(isset($_GET['delete_box'])){
-        $delete_box_id = $_GET['delete_box'];
-        $delete_box = "delete from boxes_section where box_id='$delete_box_id'";
-        $run_delete_box = mysqli_query($con,$delete_box);
-        if($run_delete_box){
-            echo "<script>alert('Một trong những giới thiệu của bạn đã bị xóa')</script>";
+        $delete_cat_id = $_GET['delete_box'];
+        $delete_cat = "delete from salary where id_salary='$delete_cat_id'";
+        $run_delete = mysqli_query($con,$delete_cat);
+        if($run_delete){
+            echo "<script>alert('Một trong những danh mục mức lương của bạn đã bị xóa')</script>";
             echo "<script>window.open('index.php?view_boxes','_self')</script>";
         }
     }

@@ -10,11 +10,11 @@
 ?>
 <?php
     if(isset($_GET['delete_ship'])){
-        $delete_ship_id = $_GET['delete_ship'];
-        $delete_ship = "delete from shipcod where id_ship='$delete_ship_id'";
-        $run_delete_ship = mysqli_query($con,$delete_ship);
-        if($run_delete_ship){
-            echo "<script>alert('Một trong những tỉnh thành của bạn đã bị xóa')</script>";
+        $delete_cat_id = $_GET['delete_ship'];
+        $delete_cat = "delete from bonus where id_bonus='$delete_cat_id'";
+        $run_delete = mysqli_query($con,$delete_cat);
+        if($run_delete){
+            echo "<script>alert('Một trong những danh mục khen thưởng của bạn đã bị xóa')</script>";
             echo "<script>window.open('index.php?view_ships','_self')</script>";
         }
     }

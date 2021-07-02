@@ -32,13 +32,13 @@ if(!isset($_SESSION['admin_email'])){
                         <i class="fa fa-tasks fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class="huge"> <?php echo $count_products; ?> </div>
+                        <div class="huge"> <?php echo $count_cus; ?> </div>
                             <div> Nhân viên </div>
                         
                     </div>
                 </div>
             </div>
-            <a href="index.php?view_products">
+            <a href="index.php?view_customers">
                 <div class="panel-footer">
                     <span class="pull-left"> 
                          Xem chi tiết
@@ -59,13 +59,13 @@ if(!isset($_SESSION['admin_email'])){
                         <i class="fa fa-users fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class="huge"> <?php echo $count_customers; ?> </div>
+                        <div class="huge"> <?php echo $count_pb; ?> </div>
                             <div> Phòng ban </div>
                         
                     </div>
                 </div>
             </div>
-            <a href="index.php?view_customers">
+            <a href="index.php?view_p_cats">
                 <div class="panel-footer">
                     <span class="pull-left"> 
                         Xem chi tiết
@@ -86,13 +86,13 @@ if(!isset($_SESSION['admin_email'])){
                         <i class="fa fa-tags fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class="huge"> <?php echo $count_p_categories; ?> </div>
+                        <div class="huge"> <?php echo $count_cv; ?> </div>
                             <div> Chức vụ </div>
                         
                     </div>
                 </div>
             </div>
-            <a href="index.php?view_p_cats">
+            <a href="index.php?view_cats">
                 <div class="panel-footer">
                     <span class="pull-left"> 
                         Xem chi tiết
@@ -113,13 +113,13 @@ if(!isset($_SESSION['admin_email'])){
                         <i class="fa fa-shopping-cart fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class="huge"> <?php echo $count_pending_orders; ?> </div>
+                        <div class="huge"> <?php echo $count_cm; ?> </div>
                             <div> Chuyên môn </div>
                         
                     </div>
                 </div>
             </div>
-            <a href="index.php?view_orders">
+            <a href="index.php?view_slides">
                 <div class="panel-footer">
                     <span class="pull-left"> 
                         Xem chi tiết
@@ -144,91 +144,54 @@ if(!isset($_SESSION['admin_email'])){
             </div>
             <div class="panel-body">
                 <div class="table-responsive">
-                    <table class="table table-hover table-striped table-bordered">
-                    <thread>
+                <table class="table table-striped table-bordered table-hover">
+                        <thread>
                             <tr>
-                                
                                 <th> STT </th>
-                                <th> Email khách hàng </th>
-                                <th> Mã đơn hàng  </th>
-                                <th> Trạng thái </th>
-                                <th> Xem đơn hàng </td>
+                                <th> Tên nhân viên </th>
+                                <th> Hình ảnh </th>
+                                <th> Email </th>
+                                <th>Phòng ban</th>
+                                <th> Chức vụ </th>
+                                <th>Chuyên môn</th>
                                 
                             </tr>
                         </thread>
                         <tbody>
-                        <?php 
-          
-          $i=0;
-          $ab = 'Thành công';
-          $get_orders = "select * from orders";
-          
-          $run_orders = mysqli_query($con,$get_orders);
-
-          while($row_order=mysqli_fetch_array($run_orders)){
-              
-            
-              $email = $row_order['customer_email'];
-              $madon = $row_order['invoice_no'];
-              $order_id = $row_order['order_id'];
-              $get_c_order = "select * from customer_orders where order_id='$order_id'";
-              
-              $run_c_order = mysqli_query($con,$get_c_order);
-              
-              $row_c_order = mysqli_fetch_array($run_c_order);
-              
-              $order_date = $row_c_order['order_date'];
-              $order_status = $row_c_order['order_status'];
-              
-              $order_amount = $row_c_order['due_amount'];
-              $product_price_format = number_format($order_amount, 0, ',', '.');
-              
-              
-              
-              $i++;
-         
-      
-      ?>
-
+                            <?php
+                                $i=0;
+                                $get_c = "select * from customers";
+                                $run_c = mysqli_query($con,$get_c);
+                                while($row_c=mysqli_fetch_array($run_c)){
+                                    $c_id = $row_c['customer_id'];
+                                    $c_name = $row_c['customer_name'];
+                                    $c_image = $row_c['customer_image'];
+                                    $c_email = $row_c['customer_email'];
+                                    $c_country = $row_c['customer_phongban'];
+                                    $c_city = $row_c['customer_chucvu'];
+                                    $c_address = $row_c['customer_address'];
+                                    $c_contact = $row_c['customer_contact'];
+                                    $c_chuyenmon = $row_c['customer_chuyenmon'];
+                                    $i++
+                               
+                            ?>
                             <tr>
                                 <td> <?php echo $i; ?> </td>
-                                <td> <?php echo $email; ?> </td>
-                                <td> <?php echo $madon; ?></td>
-                                
-                                <td>  
-                                
-                                    <?php
-                                        if($order_status=='pending'){
-                                            echo $order_status='Đang xử lý';
-                                        }else if($order_status=='Complete'){
-                                            echo $order_status='Đang giao';
-                                        }else if($order_status=='huy'){
-                                            echo $order_status='Đã huỷ';
-                                        }else{
-                                            echo $order_status='Thành công';
-                                        }
-                                    ?>
-                                
-                                </td>
-                                <td>
-                                    <a href="index.php?view_ord=<?php echo $order_id; ?>" class="btn btn-success">
-                                            Xem đơn hàng
-                                        </a>
-                                    </td>
-                                
-                                
+                                <td> <?php echo $c_name; ?> </td>
+                                <td> <img src="customer_image/<?php echo $c_image; ?>" width="60" height="60" ></td>
+                                <td> <?php echo $c_email; ?> </td>
+                                <td> <?php echo $c_country; ?> </td>
+                                <td> <?php echo $c_city; ?> </td>
+                                <td> <?php echo $c_chuyenmon; ?> </td>
+                               
                             </tr>
-                            <?php 
-                         }
-                        
-                        ?>
-                            
+                            <?php  } ?>
                         </tbody>
                     </table>
                 </div>
                 <div class="text-right">
-                    <a href="index.php?view_orders">
-                    Xem tất cả các đơn hàng <i class="fa fa-arrow-circle-right"></i>
+                    <a href="index.php?view_customers">
+                    Xem tất cả các nhân viên <i class="fa fa-arrow-circle-right"></i>
                     </a>
                 </div>
             </div>

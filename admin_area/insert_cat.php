@@ -12,7 +12,7 @@
     <div class="col-lg-12">
         <ol class="breadcrumb">
             <li>
-                <i class="fa fa-dashboard"></i> Trang tổng quan / Thêm thể loại sản phẩm
+                <i class="fa fa-dashboard"></i> Trang tổng quan / Thêm danh mục chức vụ
             </li>
         </ol>
     </div>
@@ -22,14 +22,14 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">
-                    <i class="fa fa-money fa-fw"></i> Thêm thể loại sản phẩm 
+                    <i class="fa fa-money fa-fw"></i> Thêm danh mục chức vụ
                 </h3>
             </div>
             <div class="panel-body">
                 <form action="" class="form-horizontal" method="POST">
                     <div class="form-group">
                         <label for="" class="control-label col-md-3"> 
-                            Tên thể loại sản phẩm
+                            Tên chức vụ
                         </label>
                         <div class="col-md-6">
                             <input name="cat_title" type="text" class="form-control">
@@ -37,7 +37,7 @@
                     </div>
                     <div class="form-group">
                         <label for="" class="control-label col-md-3"> 
-                            Mô tả thể loại sản phẩm
+                            Mô tả chức vụ
                         </label>
                         <div class="col-md-6">
                             <textarea type="text" name="cat_desc" id="" cols="30" rows="10" class="form-control"></textarea>
@@ -60,11 +60,11 @@
     if(isset($_POST['submit'])){
         $cat_title = $_POST['cat_title'];
         $cat_desc = $_POST['cat_desc'];
-        $insert_cat = "insert into categories (cat_title,cat_desc) values ('$cat_title','$cat_desc')";
+        $insert_cat = "insert into position (position_name,coefficient) values ('$cat_title','$cat_desc')";
         $run_cat = mysqli_query($con,$insert_cat);
         if($run_cat){
-            echo "<script>alert('Đã thêm vào một thể loại sản phẩm mới thành công')</script>";
-            echo "<script>window.open('index.php?view_cats'.'_self')</script>";
+            echo "<script>alert('Đã thêm vào một danh mục chức vụ mới thành công')</script>";
+            echo "<script>window.open('index.php?view_cats','_self')</script>";
         }
     }
 ?>

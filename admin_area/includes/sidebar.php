@@ -179,10 +179,10 @@
                 </a>
                 <ul id="ships" class="collapse">
                     <li>
-                        <a href="index.php?insert_ship"> Thêm kỷ luật </a>
+                        <a href="index.php?insert_kl"> Thêm kỷ luật </a>
                     </li>
                     <li>
-                        <a href="index.php?view_ships"> Xem kỷ luật </a>
+                        <a href="index.php?view_kl"> Xem kỷ luật </a>
                     </li>
                 </ul>
             </li>

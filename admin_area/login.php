@@ -58,7 +58,7 @@
             
             $_SESSION['admin_email']=$admin_email;
             
-            echo "<script>alert('Đăng hập thành công. Xin chào')</script>";
+            echo "<script>alert('Đăng nhập thành công. Xin chào')</script>";
             
             echo "<script>window.open('index.php?dashboard','_self')</script>";
             

@@ -20,9 +20,9 @@
         $admin_about = $row_admin['admin_about'];
         $admin_job = $row_admin['admin_job'];
         $admin_name = $row_admin['admin_name'];
-        $get_order = "select * from customer_orders";
-        $run_order = mysqli_query($con,$get_order);
-        $row_order = mysqli_fetch_array($run_order);
+        // $get_order = "select * from customer_orders";
+        // $run_order = mysqli_query($con,$get_order);
+        // $row_order = mysqli_fetch_array($run_order);
        
         $get_products = "select * from products";
         $run_products = mysqli_query($con,$get_products);
@@ -62,7 +62,9 @@
                 <?php
                     if(isset($_GET['dashboard'])){
                         include("dashboard.php");
-                    }   if(isset($_GET['insert_product'])){
+                    }if(isset($_GET['view_attendance'])){
+                            include("attendance.php");
+                    }if(isset($_GET['insert_product'])){
                             include("insert_product.php");
                     }if(isset($_GET['view_products'])){
                         include("view_products.php");
@@ -98,10 +100,7 @@
                         include("view_customers.php");
                     }if(isset($_GET['delete_customer'])){
                         include("delete_customer.php");
-                    }if(isset($_GET['view_orders'])){
-                        include("view_orders.php");
-                    }
-                    if(isset($_GET['delete_order'])){
+                    }if(isset($_GET['delete_order'])){
                         include("delete_order.php");
                     }if(isset($_GET['view_payments'])){
                         include("view_payments.php");
@@ -160,13 +159,10 @@
                     }if(isset($_GET["edit_customer"])){
                         include("edit_customers.php");
                     }
-                    
-
                 ?>
                 </div>
             </div>
         </div>
-
     <script src="js/jquery-331.min.js"></script>
     <script src="js/bootstrap-337.min.js"></script>   
 </body>

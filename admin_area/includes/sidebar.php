@@ -13,15 +13,19 @@
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
             <span class="sr-only">Toggle Navigation</span>
 
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-        </button>
-        <a href="index.php?dashboard" class="navbar-brand">Trang Admin</a>
+        </button> -->
+        <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+            <span class="sr-only">Toggle navigation</span>
+        </a>
+        <a href="index.php?dashboard" class="navbar-brand">HRM SYSTEM</a>
     </div>
+    <!-- Thông tin quản trị viên -->
     <ul class="nav navbar-right top-nav">
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -62,13 +66,16 @@
             </ul>
         </li>
     </ul>
+    
     <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav side-nav">
+            <li class="header">REPORTS</li>
             <li>
                 <a href="index.php?dashboard">
                     <i class="fa fa-fw fa-dashboard"></i> Bảng điều khiển
                 </a>
             </li>
+            <li class="header">MANAGE</li>
             <li>
                 <a href="#" data-toggle="collapse" data-target="#user">
                     <i class="fa fa-fw fa-users"></i> Nhân viên
@@ -84,7 +91,7 @@
                 </ul>
             </li>
             <li>
-                <a href="index.php?view_customers">
+                <a href="index.php?view_attendance">
                      <i class="fa fa-fw fa-users"></i> Điểm danh
                 </a>
             </li>

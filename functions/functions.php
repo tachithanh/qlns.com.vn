@@ -1,6 +1,6 @@
 <?php 
 
-$db = mysqli_connect("localhost","root","","ecom_store");
+$db = mysqli_connect("localhost","root","","quanlynhansu");
 mysqli_set_charset($db, 'UTF8');
 ///bat dau getRealIpUser function///
 function getRealIpUser(){

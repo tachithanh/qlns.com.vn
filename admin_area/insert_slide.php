@@ -12,7 +12,7 @@
     <div class="col-lg-12">
         <ol class="breadcrumb">
             <li>
-                <i class="fa fa-dashboard"></i> Trang tổng quan / Thêm danh mục mức lương
+                <i class="fa fa-dashboard"></i> Trang tổng quan / Thêm danh mục chuyên môn
             </li>
         </ol>
     </div>
@@ -23,7 +23,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">
-                    <i class="fa fa-money fa-fw"></i> Thêm danh mục mức lương
+                    <i class="fa fa-money fa-fw"></i> Thêm danh mục chuyên môn
                 </h3>
             </div>
             <div class="panel-body">
